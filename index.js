@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
-
+var cors = require('cors');
 
 /* pull in mongoose and connect to mlab mongo database*/
 var mongoose = require('mongoose');
@@ -12,7 +12,7 @@ var db = mongoose.connect(process.env.mongodb_books);
 /* Create our express routing app */
 var app = express();
 
-
+app.use(cors());
 /* Add Generic Middleware */
 /* set port */
 app.set('port', (process.env.PORT || 3000));
