@@ -28,8 +28,8 @@ var bookRouter = require('./Routes/genericRoute')(Book, modelTypes.books);
 var Card = require('./models/cardModel');
 var cardRouter = require('./Routes/genericRoute')(Card, modelTypes.cards);
 
-app.use('/api/books', bookRouter);
-app.use('/api/cards', cardRouter);
+ app.use('/api', bookRouter);
+// app.use('/api/cards', cardRouter);
 
 app.listen(app.get('port'), function () {
     console.log('Node app is running on port', app.get('port'));

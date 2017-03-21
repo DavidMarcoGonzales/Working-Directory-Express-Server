@@ -2,8 +2,8 @@
  * Created by David on 10/12/2016.
  */
 var express = require('express');
-
-var routes = function (MongooseAPIModel, apiPath ) {
+var parseUrl = require('parseurl');
+var routes = function (MongooseAPIModel, apiPath) {
     var genericRouter = express.Router();
 
     genericRouter.route('/')
@@ -13,6 +13,8 @@ var routes = function (MongooseAPIModel, apiPath ) {
             res.status(201).send(mongooseAPIObj);
         })
         .get(function (req, res) {
+
+
             var query = {};
             if (req.query.genre) {
                 query.genre = req.query.genre;
@@ -25,7 +27,7 @@ var routes = function (MongooseAPIModel, apiPath ) {
                     mongooseAPIObjs.forEach(function (element, index, array) {
                         var newJSON = element.toJSON();
                         newJSON.links = {};
-                        newJSON.links.self = `http://${ req.headers.host}/${apiPath}/${newJSON._id}`;
+                        newJSON.links.self = `http://${req.headers.host}/${apiPath}/${newJSON._id}`;
                         returnJSONArray.push(newJSON);
                     });
                     /* res.json returns array of json */
@@ -33,8 +35,9 @@ var routes = function (MongooseAPIModel, apiPath ) {
                 }
             });
         });
-    genericRouter.use('/:id', function (req, res, next) {
-        console.log(req);
+    genericRouter.use('/:page/:section/:subsetion/:card', function (req, res, next) {
+        console.log('Dave', req.baseUrl);
+
         MongooseAPIModel.findById(req.params.id, function (err, mongooseAPIObj) {
             if (err) {
                 res.status(500).send(err);
@@ -48,11 +51,12 @@ var routes = function (MongooseAPIModel, apiPath ) {
         });
 
     });
-    genericRouter.route('/:id')
+    genericRouter.route('/:page/:section/:subsetion/:card')
         .get(function (req, res) {
+            console.log('Dave1', req.baseUrl);
             var returnJSON = req.mongooseAPIObj.toJSON();
             returnJSON.links = {};
-            var newLink = `http://${ req.headers.host}/${apiPath}/?genre=${returnJSON.genre}`;
+            var newLink = `http://${req.headers.host}/${apiPath}/?genre=${returnJSON.genre}`;
             returnJSON.links.FilterByThisGenre = newLink.replace(' ', '%20');
             res.json(returnJSON);
         })
