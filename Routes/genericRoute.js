@@ -27,7 +27,7 @@ var routes = function (MongooseAPIModel, apiPath) {
                     mongooseAPIObjs.forEach(function (element, index, array) {
                         var newJSON = element.toJSON();
                         newJSON.links = {};
-                        newJSON.links.self = `http://${req.headers.host}/${apiPath}/${newJSON._id}`;
+                        newJSON.links.self = `http://${req.headers.host}/${req.baseUrl}/${newJSON._id}`;
                         returnJSONArray.push(newJSON);
                     });
                     /* res.json returns array of json */
