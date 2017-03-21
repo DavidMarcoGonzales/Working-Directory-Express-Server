@@ -38,7 +38,7 @@ var routes = function (MongooseAPIModel, apiPath) {
     genericRouter.use('/:page/:section/:subsetion/:card', function (req, res, next) {
         console.log('Dave', req.baseUrl);
 
-        MongooseAPIModel.findById(req.params.id, function (err, mongooseAPIObj) {
+        MongooseAPIModel.findOne({'uri': req.baseUrl}, function (err, mongooseAPIObj) {
             if (err) {
                 res.status(500).send(err);
             }
