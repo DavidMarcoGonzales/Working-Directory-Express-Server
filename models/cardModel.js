@@ -7,5 +7,11 @@ var cardModel = new Schema({
     answers: [{type: String}],
     conclusion: {type: String}
 });
+// var cardModel = new Schema({
+//     title: {type: String},
+//     question: {type: String},
+//     answers: [{type: String}],
+//     conclusion: {type: String}
+// });
 
 module.exports = mongoose.model('Card', cardModel);
