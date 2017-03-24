@@ -7,13 +7,8 @@ var routes = function (MongooseAPIModel, apiPath) {
     var genericRouter = express.Router();
 
     genericRouter.route('/:page/:section/:subsetion/:cardNum')
-        .post(function (req, res) {
-            var mongooseAPIObj = new MongooseAPIModel(req.body);
-            mongooseAPIObj.save();
-            res.status(201).send(mongooseAPIObj);
-        })
         .get(function (req, res) {
-            MongooseAPIModel.find({url: req.path}, function (err, cards) {
+            MongooseAPIModel.find({url: req.originalUrl}, function (err, cards) {
                 if (err) {
                     return res.status(500).send(err);
                 } else {
