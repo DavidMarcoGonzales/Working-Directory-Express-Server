@@ -19,7 +19,7 @@ var cardModel = new Schema({
         allowfullscreen : { type: String }
     },
     topic : { type: String },
-    reasonDetailfFactTransitions: [
+    rdfts: [
         {
             rdft: { type: String },
             explainations: [
