@@ -13,7 +13,7 @@ var cardModel = new Schema({
         frameborder: { type: String },
         allowfullscreen: { type: String }
     },
-
+    myArray: [{body: String}],
     topic: { type: String },
     accordBody: { type: String },
     conclusion: { type: String }
