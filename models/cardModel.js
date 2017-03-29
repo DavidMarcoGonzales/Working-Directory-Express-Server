@@ -20,4 +20,5 @@ var cardModel = new Schema({
     prevURN: {type: String},
     nextURN: { type: String}
 });
+
 module.exports = mongoose.model('Card', cardModel);
