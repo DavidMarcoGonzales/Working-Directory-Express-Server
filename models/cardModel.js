@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var cardModel = new Schema({
-    url: { type: String },
+    currentURN: { type: String },
     title: { type: String },
     vid: {
         type: { type: String },
