@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 var cardModel = new Schema({
     url: { type: String },
     title: { type: String },
-    Vid: {
+    vid: {
         type: { type: String },
         src: { type: String },
         border: { type: String },
@@ -13,9 +13,11 @@ var cardModel = new Schema({
         frameborder: { type: String },
         allowfullscreen: { type: String }
     },
-    listItems: [ String  ],
     topic: { type: String },
-    accordBody: { type: String },
-    conclusion: { type: String }
+    rdfts: [ String  ],
+    body: { type: String },
+    conclusion: { type: String },
+    prevURN: {type: String},
+    nextURN: { type: String}
 });
 module.exports = mongoose.model('Card', cardModel);
