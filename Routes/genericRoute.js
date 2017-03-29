@@ -8,7 +8,7 @@ var routes = function (MongooseAPIModel, apiPath) {
 
     genericRouter.route('/:page/:section/:subsetion/:cardNum')
         .get(function (req, res) {
-            MongooseAPIModel.find({url: req.originalUrl}, function (err, cards) {
+            MongooseAPIModel.find({currentURN: req.originalUrl}, function (err, cards) {
                 if (err) {
                     return res.status(500).send(err);
                 } else {
