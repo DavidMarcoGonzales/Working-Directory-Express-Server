@@ -4,8 +4,8 @@ var path = require('path');
 var modelTypes = require('./models/modelTypes');
 var cors = require('cors');
 var mongoose = require('mongoose');
-var expressJWT = require('express-jwt');
-var jwt = require('jsonwebtoken');
+//var expressJWT = require('express-jwt');
+//var jwt = require('jsonwebtoken');
 
 
 var db = mongoose.connect(process.env.MONGODB_URI);
@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.static('build'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-app.use(expressJWT({secret:'I love domestic longhaired cats the most'}).unless({path:['/login','/api/Workbook','/api/Situational_Awareness']}))
+//app.use(expressJWT({secret:'I love domestic longhaired cats the most'}).unless({path:['/login','/api/Workbook','/api/Situational_Awareness']}))
 
 
 // app.post('/login', function(req,res){
