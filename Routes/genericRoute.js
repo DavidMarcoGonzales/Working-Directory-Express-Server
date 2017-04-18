@@ -5,8 +5,7 @@ var express = require('express');
 
 var routes = function (MongooseAPIModel, apiPath) {
     var genericRouter = express.Router();
-
-    genericRouter.route('/:page/:section/:subsetion/:cardNum')
+    genericRouter.route('/:section/:subsetion/:cardNum')
         .get(function (req, res) {
             MongooseAPIModel.find({currentURN: req.originalUrl}, function (err, cards) {
                 if (err) {
