@@ -3,7 +3,7 @@
  */
 var express = require('express');
 
-var routes = function (MongooseAPIModel, apiPath) {
+var routes = function (MongooseAPIModel) {
     var genericRouter = express.Router();
     genericRouter.route('/:section/:subsetion/:cardNum')
         .get(function (req, res) {

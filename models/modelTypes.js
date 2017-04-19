@@ -1,5 +1,5 @@
  var modelTypes = {
     card: '/api/card',
-    book: '/api/book'
+    book: '/api/user'
 }
  module.exports = modelTypes;
