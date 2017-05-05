@@ -17,7 +17,6 @@ app.use(express.static('build'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(expressJWT({ secret: 'I love domestic longhaired cats the most' }).unless({ path: ["/login"] }));
-console.log("using 3000");
 
 const User = require("./models/userModel");
 
