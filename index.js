@@ -8,6 +8,10 @@ var mongoose = require('mongoose');
 // var jwt = require('jsonwebtoken');
 
 
+
+
+
+
 var db = mongoose.connect(process.env.MONGODB_URI);
 
 var app = express();
