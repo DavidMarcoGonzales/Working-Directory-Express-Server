@@ -1,5 +1,0 @@
-This build works.
-Status = no bugs
-I'm using it as the base so I could rebase to this in the fugure if I break something.
-I'm going to make new commits and then rebase back to here if anything goes wrong.
-
